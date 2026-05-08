@@ -1,0 +1,43 @@
+# Python source code (NEVER commit to public repo)
+*.py
+*.pyc
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Build and CI/CD files (NEVER commit to public repo)
+*.sh
+*.bat
+requirements.txt
+.github/
+
+# Development files
+*.log
+*.md
+!README.md
+!docs/**/*.md
+docs/how-it-works.md
+*.txt
+!docs/**/*.txt
+!RELEASE_NOTES*.txt
+*.sql
+*.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Bundles and test data
+*.zip
+test_bundles/
+bundle_reports/
+demo/
+real_test_bundles/
