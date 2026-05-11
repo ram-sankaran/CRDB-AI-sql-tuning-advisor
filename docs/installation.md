@@ -59,8 +59,8 @@ cd sql-tuning-advisor-v1.0.0
 
 **Before installing SQL Tuning Advisor**, you must have:
 
-1. **Ollama installed** → [Prerequisites: Ollama](./prerequisites.html#1-ollama-local-llm-runtime)
-2. **Language model downloaded** → [Prerequisites: Models](./prerequisites.html#2-language-model)
+1. **Ollama installed** → [Prerequisites: Ollama](./prerequisites.md#1-ollama-local-llm-runtime)
+2. **Language model downloaded** → [Prerequisites: Models](./prerequisites.md#2-language-model)
 
 **Quick prerequisite check:**
 ```bash
@@ -420,7 +420,7 @@ ollama serve
 curl http://localhost:11434/api/tags
 ```
 
-See [Prerequisites](./prerequisites.html) for more Ollama troubleshooting.
+See [Prerequisites](./prerequisites.md) for more Ollama troubleshooting.
 
 ---
 
@@ -428,10 +428,10 @@ See [Prerequisites](./prerequisites.html) for more Ollama troubleshooting.
 
 After successful installation:
 
-1. **Generate a query bundle** → [Usage Guide](./usage.html)
+1. **Generate a query bundle** → [Usage Guide](./usage.md)
 2. **Upload and analyze** → [Web Interface](./usage.html#web-interface)
-3. **Review recommendations** → [Understanding Reports](./reports.html)
+3. **Review recommendations** → [Understanding Reports](./reports.md)
 
 ---
 
-[← Back to Prerequisites](./prerequisites.html) | [Next: Usage Guide →](./usage.html)
+[← Back to Prerequisites](./prerequisites.md) | [Next: Usage Guide →](./usage.md)
