@@ -121,20 +121,29 @@ EXPLAIN ANALYZE (DEBUG) SELECT * FROM users WHERE email = 'test@example.com';
 
 ### Installation
 
-**macOS / Linux**
+**macOS (Apple Silicon)**
 ```bash
 # Download latest release
 curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-arm64.zip
 
-# Extract
+# Extract and run
 unzip sql-tuning-advisor-v1.0.0-darwin-arm64.zip
-cd sql-tuning-advisor-v1.0.0
-
-# Run
+cd sql-tuning-advisor-v1.0.0-darwin-arm64
 ./sql-tuning-advisor-v1.0.0
 ```
 
-**Windows**
+**Linux (Ubuntu 22.04+)**
+```bash
+# Download latest release
+curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.zip
+
+# Extract and run
+unzip sql-tuning-advisor-v1.0.0-linux-x86_64.zip
+cd sql-tuning-advisor-v1.0.0-linux-x86_64
+./sql-tuning-advisor-v1.0.0
+```
+
+**Windows (x64)**
 ```cmd
 REM Download from GitHub releases
 REM Extract ZIP file
@@ -254,7 +263,9 @@ SELECT product_id, name, price FROM products WHERE priority = 'high' AND status 
 
 ## Support
 
-- **Documentation:** [Full Documentation](./documentation.html)
+- **Installation:** [Installation Guide](installation.html)
+- **Prerequisites:** [Prerequisites](prerequisites.html)
+- **How It Works:** [Architecture Details](how-it-works.html)
 - **Issues:** [GitHub Issues](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/issues)
 - **Discussions:** [GitHub Discussions](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/discussions)
 
@@ -279,5 +290,6 @@ Built with:
 <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #f0f0f0; border-radius: 8px;">
   <h3>Ready to optimize your queries?</h3>
   <a href="https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases" class="btn btn-primary" style="margin: 10px;">Download Now</a>
-  <a href="./documentation.html" class="btn" style="margin: 10px;">Read Documentation</a>
+  <a href="installation.html" class="btn" style="margin: 10px;">Installation Guide</a>
+  <a href="prerequisites.html" class="btn" style="margin: 10px;">Prerequisites</a>
 </div>

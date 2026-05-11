@@ -12,7 +12,7 @@ Step-by-step installation instructions for all platforms.
 
 ## Quick Install
 
-### macOS / Linux
+### macOS (Apple Silicon)
 
 ```bash
 # 1. Download latest release
@@ -22,7 +22,27 @@ curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/dow
 unzip sql-tuning-advisor-v1.0.0-darwin-arm64.zip
 
 # 3. Navigate to folder
-cd sql-tuning-advisor-v1.0.0
+cd sql-tuning-advisor-v1.0.0-darwin-arm64
+
+# 4. Run
+./sql-tuning-advisor-v1.0.0
+```
+
+**Opens at:** `http://localhost:5050`
+
+---
+
+### Linux (Ubuntu 22.04+)
+
+```bash
+# 1. Download latest release
+curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.zip
+
+# 2. Extract
+unzip sql-tuning-advisor-v1.0.0-linux-x86_64.zip
+
+# 3. Navigate to folder
+cd sql-tuning-advisor-v1.0.0-linux-x86_64
 
 # 4. Run
 ./sql-tuning-advisor-v1.0.0
@@ -59,8 +79,8 @@ cd sql-tuning-advisor-v1.0.0
 
 **Before installing SQL Tuning Advisor**, you must have:
 
-1. **Ollama installed** → [Prerequisites: Ollama](./prerequisites.md#1-ollama-local-llm-runtime)
-2. **Language model downloaded** → [Prerequisites: Models](./prerequisites.md#2-language-model)
+1. **Ollama installed** → [Prerequisites: Ollama](prerequisites.html#1-ollama-local-llm-runtime)
+2. **Language model downloaded** → [Prerequisites: Models](prerequisites.html#2-language-model)
 
 **Quick prerequisite check:**
 ```bash
@@ -420,7 +440,7 @@ ollama serve
 curl http://localhost:11434/api/tags
 ```
 
-See [Prerequisites](./prerequisites.md) for more Ollama troubleshooting.
+See [Prerequisites](prerequisites.html) for more Ollama troubleshooting.
 
 ---
 
@@ -428,10 +448,10 @@ See [Prerequisites](./prerequisites.md) for more Ollama troubleshooting.
 
 After successful installation:
 
-1. **Generate a query bundle** → [Usage Guide](./usage.md)
-2. **Upload and analyze** → [Web Interface](./usage.html#web-interface)
-3. **Review recommendations** → [Understanding Reports](./reports.md)
+1. **Generate a query bundle** using `EXPLAIN ANALYZE (DEBUG)` in CockroachDB
+2. **Upload bundle** to the web interface at `http://localhost:5050`
+3. **Review recommendations** and apply optimizations
 
 ---
 
-[← Back to Prerequisites](./prerequisites.md) | [Next: Usage Guide →](./usage.md)
+[← Back to Prerequisites](prerequisites.html) | [Next: How It Works →](how-it-works.html)
