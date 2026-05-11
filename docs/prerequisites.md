@@ -451,10 +451,10 @@ export OLLAMA_MODEL=mistral:7b
 
 Once prerequisites are installed:
 
-1. [Install SQL Tuning Advisor](./installation.html)
-2. [Generate your first query bundle](./usage.html#generating-bundles)
-3. [Run your first analysis](./usage.html#analyzing-queries)
+1. [Install SQL Tuning Advisor](installation.html)
+2. [Learn How It Works](how-it-works.html)
+3. [View Full Documentation](index.html)
 
 ---
 
-[← Back to Home](./index.html) | [Next: Installation →](./installation.html)
+[← Back to Home](index.html) | [Next: Installation →](installation.html)
