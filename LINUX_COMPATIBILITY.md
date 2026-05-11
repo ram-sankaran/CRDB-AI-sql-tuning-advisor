@@ -2,7 +2,7 @@
 
 ## GLIBC Version Requirement
 
-The SQL Tuning Advisor Linux executable is built on **Ubuntu 22.04** and requires **GLIBC 2.35 or newer**.
+The SQL Tuning Advisor Linux executable is built on **Ubuntu 20.04** and requires **GLIBC 2.31 or newer**.
 
 ## Compatible Linux Distributions
 
@@ -109,7 +109,7 @@ python3 -m pip install pyinstaller
 3. The executable requires GLIBC >= version it was built with
 
 **Our executable:**
-- Built on Ubuntu 22.04 (GLIBC 2.35)
+- Built on Ubuntu 20.04 (GLIBC 2.31)
 - Won't run on systems with GLIBC < 2.35
 
 ## Distribution-Specific Notes
@@ -156,7 +156,7 @@ cd sql-tuning-advisor-v1.0.0-linux-x86_64
 
 **The Linux executable does NOT work on any RHEL/CentOS/Rocky/AlmaLinux version.**
 
-All Red Hat-based distributions have GLIBC 2.34 or older, but the executable requires GLIBC 2.35.
+All Red Hat-based distributions have GLIBC 2.34 or older, but the executable requires GLIBC 2.31.
 
 **Solution: Use Python source installation (Option 1)**
 - Works on all RHEL versions (7, 8, 9)
