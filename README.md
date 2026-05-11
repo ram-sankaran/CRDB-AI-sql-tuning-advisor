@@ -19,7 +19,7 @@ Choose your platform:
 | **Linux (x86_64)** | [Download](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.zip) | 90 MB | [Checksum](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.sha256) |
 | **Windows (x64)** | [Download](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-windows-x64.zip) | 72 MB | [Checksum](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-windows-x64.sha256) |
 
-**[View All Releases](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases)** | **[Documentation](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/)** | **[Quick Start Guide](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/installation.html)**
+**[View All Releases](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases)** | **[Documentation](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/)** | **[Quick Start Guide](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/installation.html)** | **[Linux Compatibility](LINUX_COMPATIBILITY.md)**
 
 ---
 
