@@ -263,9 +263,9 @@ SELECT product_id, name, price FROM products WHERE priority = 'high' AND status 
 
 ## Support
 
-- **Installation:** [Installation Guide](installation.html)
-- **Prerequisites:** [Prerequisites](prerequisites.html)
-- **How It Works:** [Architecture Details](how-it-works.html)
+- **Installation:** [Installation Guide](installation.md)
+- **Prerequisites:** [Prerequisites](prerequisites.md)
+- **How It Works:** [Architecture Details](how-it-works.md)
 - **Issues:** [GitHub Issues](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/issues)
 - **Discussions:** [GitHub Discussions](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/discussions)
 
@@ -290,6 +290,6 @@ Built with:
 <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #f0f0f0; border-radius: 8px;">
   <h3>Ready to optimize your queries?</h3>
   <a href="https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases" class="btn btn-primary" style="margin: 10px;">Download Now</a>
-  <a href="installation.html" class="btn" style="margin: 10px;">Installation Guide</a>
-  <a href="prerequisites.html" class="btn" style="margin: 10px;">Prerequisites</a>
+  <a href="installation.md" class="btn" style="margin: 10px;">Installation Guide</a>
+  <a href="prerequisites.md" class="btn" style="margin: 10px;">Prerequisites</a>
 </div>

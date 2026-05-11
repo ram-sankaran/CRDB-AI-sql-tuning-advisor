@@ -525,4 +525,4 @@ If test database unreachable:
 
 ---
 
-[← Back to Home](index.html) | [Next: Installation Guide →](installation.html)
+[← Back to Home](index.md) | [Next: Installation Guide →](installation.md)
