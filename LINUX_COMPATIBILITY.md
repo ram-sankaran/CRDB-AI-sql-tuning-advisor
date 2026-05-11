@@ -14,11 +14,9 @@ The SQL Tuning Advisor Linux executable is built on **Ubuntu 22.04** and require
 | **Ubuntu** | 24.04 LTS | 2.39 | ✅ Compatible |
 | **Debian** | 12 (Bookworm) | 2.36 | ✅ Compatible |
 | **Fedora** | 36+ | 2.35+ | ✅ Compatible |
-| **RHEL** | 9+ | 2.34+ | ⚠️ May work* |
-| **Rocky Linux** | 9+ | 2.34+ | ⚠️ May work* |
-| **AlmaLinux** | 9+ | 2.34+ | ⚠️ May work* |
-
-*RHEL 9 has GLIBC 2.34, which is close but may have compatibility issues.
+| **RHEL** | 9+ | 2.34 | ❌ Won't work |
+| **Rocky Linux** | 9+ | 2.34 | ❌ Won't work |
+| **AlmaLinux** | 9+ | 2.34 | ❌ Won't work |
 
 ### ❌ NOT Compatible (GLIBC too old)
 
@@ -118,29 +116,26 @@ python3 -m pip install pyinstaller
 
 ### Red Hat Enterprise Linux (RHEL)
 
-**RHEL 9:**
-```bash
-# Check version
-cat /etc/redhat-release
-# Should show: Red Hat Enterprise Linux release 9.x
+**All RHEL versions:** The executable **won't work** - use Python source method instead.
 
-# Check GLIBC
-ldd --version
-# Should show: 2.34 (may work, but not guaranteed)
-```
+- **RHEL 9:** GLIBC 2.34 (too old, requires 2.35)
+- **RHEL 8:** GLIBC 2.28 (too old)
+- **RHEL 7:** GLIBC 2.17 (too old)
 
-**RHEL 8:** Use Python source method (see Option 1 above)
+**Recommended:** Use Python source installation (see Option 1 above)
 
 ### CentOS / Rocky / AlmaLinux
 
-**Version 9:** Should work (GLIBC 2.34)  
-**Version 8:** Use Python source method  
-**Version 7:** Use Python source method (very old)
+**All versions:** The executable **won't work** - use Python source method instead.
+
+- **Version 9:** GLIBC 2.34 (too old, requires 2.35)
+- **Version 8:** GLIBC 2.28 (too old)
+- **Version 7:** GLIBC 2.17 (too old)
 
 ### Amazon Linux
 
-**Amazon Linux 2023:** GLIBC 2.34 (may work)  
-**Amazon Linux 2:** GLIBC 2.26 ❌ Use Python source
+**Amazon Linux 2023:** GLIBC 2.34 ❌ Won't work (use Python source)  
+**Amazon Linux 2:** GLIBC 2.26 ❌ Won't work (use Python source)
 
 ## Quick Compatibility Check
 
@@ -157,11 +152,14 @@ cd sql-tuning-advisor-v1.0.0-linux-x86_64
 # If you see GLIBC error: ❌ Use Python source instead
 ```
 
-## Recommended Solution for Enterprise
+## Recommended Solution for Red Hat Distributions
 
-For **enterprise deployments** on RHEL/CentOS/Rocky/AlmaLinux:
+**The Linux executable does NOT work on any RHEL/CentOS/Rocky/AlmaLinux version.**
 
-**Use Python source installation (Option 1)**
+All Red Hat-based distributions have GLIBC 2.34 or older, but the executable requires GLIBC 2.35.
+
+**Solution: Use Python source installation (Option 1)**
+- Works on all RHEL versions (7, 8, 9)
 - More portable across distributions
 - Easier to customize
 - No GLIBC compatibility issues
