@@ -111,7 +111,7 @@ wget https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/downloa
 curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-arm64.zip
 ```
 
-**File:** `sql-tuning-advisor-v1.0.0-darwin-arm64.zip` (49 MB)
+**File:** `sql-tuning-advisor-v1.0.0-darwin-arm64.zip` (50 MB)
 
 **Note:** Intel Mac users can use Rosetta 2 to run the ARM64 version.
 </details>
@@ -127,7 +127,7 @@ wget https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/downloa
 curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.zip
 ```
 
-**File:** `sql-tuning-advisor-v1.0.0-linux-x86_64.zip` (51 MB)
+**File:** `sql-tuning-advisor-v1.0.0-linux-x86_64.zip` (90 MB)
 </details>
 
 <details>
@@ -143,7 +143,7 @@ curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/dow
 Invoke-WebRequest -Uri "https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-windows-x64.zip" -OutFile "sql-tuning-advisor-v1.0.0-windows-x64.zip"
 ```
 
-**File:** `sql-tuning-advisor-v1.0.0-windows-x64.zip` (48 MB)
+**File:** `sql-tuning-advisor-v1.0.0-windows-x64.zip` (72 MB)
 </details>
 
 ---
