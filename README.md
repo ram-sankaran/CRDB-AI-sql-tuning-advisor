@@ -3,7 +3,6 @@
 **AI-Powered SQL Query Performance Analysis & Optimization**
 
 [![Latest Release](https://img.shields.io/github/v/release/ram-sankaran/CRDB-AI-sql-tuning-advisor?label=Latest%20Release)](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/ram-sankaran/CRDB-AI-sql-tuning-advisor/total)](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Documentation](https://img.shields.io/badge/docs-live-blue)](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/)
 
