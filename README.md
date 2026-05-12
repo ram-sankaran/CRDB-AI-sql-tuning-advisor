@@ -153,7 +153,7 @@ CREATE INDEX ON orders (customer_id, status);
 
 ### Install SQL Tuning Advisor
 
-**macOS / Linux:**
+**macOS (Apple Silicon):**
 ```bash
 # Download latest release
 curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-arm64.zip
@@ -162,6 +162,19 @@ curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/dow
 unzip sql-tuning-advisor-v1.0.0-darwin-arm64.zip
 cd sql-tuning-advisor-v1.0.0
 ./sql-tuning-advisor-v1.0.0
+```
+
+**Linux (Ubuntu 22.04+, Debian 12+, Fedora 36+):**
+```bash
+# Download latest release
+curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.zip
+
+# Extract and run
+unzip sql-tuning-advisor-v1.0.0-linux-x86_64.zip
+cd sql-tuning-advisor-v1.0.0
+./sql-tuning-advisor-v1.0.0
+
+# For RHEL/Rocky/AlmaLinux: See compatibility matrix below
 ```
 
 **Windows:**
@@ -207,19 +220,22 @@ cd sql-tuning-advisor-v1.0.0
 
 ### Linux Compatibility Matrix
 
-The Linux executable requires **GLIBC 2.31+** (built on Ubuntu 20.04).
+The Linux executable requires **GLIBC 2.35+** (built on Ubuntu 22.04).
 
 | Distribution | Compatible Versions | GLIBC | Status |
 |--------------|---------------------|-------|--------|
-| **Ubuntu** | 20.04 LTS and newer | 2.31+ | ✅ Works |
-| **Debian** | 11 (Bullseye) and newer | 2.31+ | ✅ Works |
-| **Fedora** | 34 and newer | 2.33+ | ✅ Works |
-| **RHEL** | 9 and newer | 2.34+ | ✅ Works |
-| **Rocky Linux** | 9 and newer | 2.34+ | ✅ Works |
-| **AlmaLinux** | 9 and newer | 2.34+ | ✅ Works |
-| **Amazon Linux** | 2023 | 2.34 | ✅ Works |
-| **RHEL / CentOS** | 7, 8 | 2.17-2.28 | ❌ Too old - use [Python source](LINUX_COMPATIBILITY.md) |
-| **Amazon Linux** | 2 | 2.26 | ❌ Too old - use [Python source](LINUX_COMPATIBILITY.md) |
+| **Ubuntu** | 22.04 LTS and newer | 2.35+ | ✅ Works |
+| **Debian** | 12 (Bookworm) and newer | 2.36+ | ✅ Works |
+| **Fedora** | 36 and newer | 2.35+ | ✅ Works |
+| **Ubuntu** | 20.04 LTS | 2.31 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
+| **Debian** | 11 (Bullseye) | 2.31 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
+| **RHEL** | 9 and newer | 2.34 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
+| **Rocky Linux** | 9 and newer | 2.34 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
+| **AlmaLinux** | 9 and newer | 2.34 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
+| **Amazon Linux** | 2023 | 2.34 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
+| **RHEL / CentOS** | 7, 8 | 2.17-2.28 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
+
+**Note:** For RHEL/Rocky/AlmaLinux users, running from Python source works on all versions and is the recommended approach.
 
 Check your GLIBC version: `ldd --version`
 
