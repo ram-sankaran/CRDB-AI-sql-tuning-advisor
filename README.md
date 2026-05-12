@@ -143,8 +143,8 @@ CREATE INDEX ON orders (customer_id, status);
 
 2. **Download a model**
    ```bash
-   # Fast analysis (recommended to start)
-   ollama pull llama3:8b
+   # Fast analysis (recommended to start ,requires 8 GB RAM)
+   ollama pull llama3.1:8b
    
    # Or detailed analysis (requires 48GB RAM)
    ollama pull llama3.3:70b
