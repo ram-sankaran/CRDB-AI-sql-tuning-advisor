@@ -205,6 +205,24 @@ cd sql-tuning-advisor-v1.0.0
 - **GPU:** Optional (2x faster for LLM mode)
 - **Disk:** SSD for better performance
 
+### Linux Compatibility Matrix
+
+The Linux executable requires **GLIBC 2.31+** (built on Ubuntu 20.04).
+
+| Distribution | Compatible Versions | GLIBC | Status |
+|--------------|---------------------|-------|--------|
+| **Ubuntu** | 20.04 LTS and newer | 2.31+ | ✅ Works |
+| **Debian** | 11 (Bullseye) and newer | 2.31+ | ✅ Works |
+| **Fedora** | 34 and newer | 2.33+ | ✅ Works |
+| **RHEL** | 9 and newer | 2.34+ | ✅ Works |
+| **Rocky Linux** | 9 and newer | 2.34+ | ✅ Works |
+| **AlmaLinux** | 9 and newer | 2.34+ | ✅ Works |
+| **Amazon Linux** | 2023 | 2.34 | ✅ Works |
+| **RHEL / CentOS** | 7, 8 | 2.17-2.28 | ❌ Too old - use [Python source](LINUX_COMPATIBILITY.md) |
+| **Amazon Linux** | 2 | 2.26 | ❌ Too old - use [Python source](LINUX_COMPATIBILITY.md) |
+
+Check your GLIBC version: `ldd --version`
+
 ---
 
 ## Privacy & Security
