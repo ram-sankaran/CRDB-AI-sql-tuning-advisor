@@ -18,7 +18,7 @@ Choose your platform:
 | **Linux (x86_64)** | [Download](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.zip) | 90 MB | [Checksum](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.sha256) |
 | **Windows (x64)** | [Download](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-windows-x64.zip) | 72 MB | [Checksum](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-windows-x64.sha256) |
 
-**[View All Releases](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases)** | **[Documentation](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/)** | **[Quick Start Guide](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/installation.html)** | **[Linux Compatibility](LINUX_COMPATIBILITY.md)**
+**[View All Releases](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases)** | **[Documentation](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/)** | **[Quick Start Guide](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/installation.html)**
 
 ---
 
@@ -172,8 +172,6 @@ curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/dow
 unzip sql-tuning-advisor-v1.0.0-linux-x86_64.zip
 cd sql-tuning-advisor-v1.0.0
 ./sql-tuning-advisor-v1.0.0
-
-# For RHEL/Rocky/AlmaLinux: See compatibility matrix below
 ```
 
 **Windows:**
@@ -217,26 +215,17 @@ cd sql-tuning-advisor-v1.0.0
 - **GPU:** Optional (2x faster for LLM mode)
 - **Disk:** SSD for better performance
 
-### Linux Compatibility Matrix
+### Linux Compatibility
 
-The Linux executable requires **GLIBC 2.35+** (built on Ubuntu 22.04).
+The Linux executable requires **GLIBC 2.35+** and supports the following distributions:
 
-| Distribution | Compatible Versions | GLIBC | Status |
-|--------------|---------------------|-------|--------|
-| **Ubuntu** | 22.04 LTS and newer | 2.35+ | ✅ Works |
-| **Debian** | 12 (Bookworm) and newer | 2.36+ | ✅ Works |
-| **Fedora** | 36 and newer | 2.35+ | ✅ Works |
-| **Ubuntu** | 20.04 LTS | 2.31 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
-| **Debian** | 11 (Bullseye) | 2.31 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
-| **RHEL** | 9 and newer | 2.34 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
-| **Rocky Linux** | 9 and newer | 2.34 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
-| **AlmaLinux** | 9 and newer | 2.34 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
-| **Amazon Linux** | 2023 | 2.34 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
-| **RHEL / CentOS** | 7, 8 | 2.17-2.28 | ❌ Use [Python source](LINUX_COMPATIBILITY.md) |
+| Distribution | Supported Versions |
+|--------------|-------------------|
+| **Ubuntu** | 22.04 LTS and newer |
+| **Debian** | 12 (Bookworm) and newer |
+| **Fedora** | 36 and newer |
 
-**Note:** For RHEL/Rocky/AlmaLinux users, running from Python source works on all versions and is the recommended approach.
-
-Check your GLIBC version: `ldd --version`
+To check your GLIBC version: `ldd --version`
 
 ---
 
