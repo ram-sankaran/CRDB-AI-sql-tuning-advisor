@@ -164,6 +164,13 @@ cd sql-tuning-advisor-v1.0.0
 ./sql-tuning-advisor-v1.0.0
 ```
 
+> **macOS Security Note:** If blocked with *"cannot be opened because the developer cannot be verified"*:
+> 1. Try to run the app (it will be blocked)
+> 2. Open **System Settings > Privacy & Security**
+> 3. Scroll to **Security** section
+> 4. Click **"Allow Anyway"** next to the blocked app message
+> 5. Run the app again and click **"Open"** to confirm
+
 **Linux (Ubuntu 22.04+, Debian 12+, Fedora 36+):**
 ```bash
 # Download latest release
