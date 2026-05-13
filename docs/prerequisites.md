@@ -1,8 +1,3 @@
----
-layout: default
-title: Prerequisites
-nav_order: 3
----
 
 # Prerequisites
 
@@ -82,12 +77,12 @@ brew services start ollama
 
 **For Fast Analysis (SLM Mode):**
 ```bash
-# llama3:8b - 4.7 GB download
-ollama pull llama3:8b
+# llama3.1:8b - 4.9 GB download
+ollama pull llama3.1:8b
 ```
 
 **Requirements:**
-- Download size: 4.7 GB
+- Download size: 4.9 GB
 - RAM needed: 8 GB
 - Analysis speed: 3-5 seconds
 - Quality: Good
