@@ -16,6 +16,7 @@ Choose your platform:
 | Platform | Download | Size | SHA256 |
 |----------|----------|------|--------|
 | **macOS (Apple Silicon)** | [Download](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-arm64.zip) | 50 MB | [Checksum](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-arm64.sha256) |
+| **macOS (Intel)** | [Download](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-x86_64.zip) | 50 MB | [Checksum](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-x86_64.sha256) |
 | **Linux (x86_64)** | [Download](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.zip) | 90 MB | [Checksum](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-linux-x86_64.sha256) |
 | **Windows (x64)** | [Download](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-windows-x64.zip) | 72 MB | [Checksum](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-windows-x64.sha256) |
 
@@ -153,13 +154,24 @@ CREATE INDEX ON orders (customer_id, status);
 
 ### Install SQL Tuning Advisor
 
-**macOS (Apple Silicon):**
+**macOS (Apple Silicon - M1/M2/M3):**
 ```bash
 # Download latest release
 curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-arm64.zip
 
 # Extract and run
 unzip sql-tuning-advisor-v1.0.0-darwin-arm64.zip
+cd sql-tuning-advisor-v1.0.0
+./sql-tuning-advisor-v1.0.0
+```
+
+**macOS (Intel):**
+```bash
+# Download latest release
+curl -LO https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases/download/v1.0.0/sql-tuning-advisor-v1.0.0-darwin-x86_64.zip
+
+# Extract and run
+unzip sql-tuning-advisor-v1.0.0-darwin-x86_64.zip
 cd sql-tuning-advisor-v1.0.0
 ./sql-tuning-advisor-v1.0.0
 ```
