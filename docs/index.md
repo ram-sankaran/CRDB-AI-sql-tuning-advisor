@@ -1,8 +1,4 @@
----
-layout: default
-title: Home
-nav_order: 1
----
+
 
 # CockroachDB SQL Tuning Advisor
 
@@ -10,8 +6,8 @@ nav_order: 1
 
 Transform slow queries into fast ones with intelligent recommendations powered by local LLMs.
 
-[Download Latest Release](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View on GitHub](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Download Latest Release](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor/releases)
+[View on GitHub](https://github.com/ram-sankaran/CRDB-AI-sql-tuning-advisor)
 
 ---
 
@@ -107,7 +103,7 @@ EXPLAIN ANALYZE (DEBUG) SELECT * FROM users WHERE email = 'test@example.com';
    curl -fsSL https://ollama.ai/install.sh | sh
    
    # Download model (choose one)
-   ollama pull llama3:8b          # Fast (SLM mode)
+   ollama pull llama3.1:8b          # Fast (SLM mode)
    ollama pull llama3.3:70b       # Detailed (LLM mode)
    ```
 
@@ -183,7 +179,7 @@ sql-tuning-advisor-v1.0.0.exe
 - CI/CD pipeline integration
 
 **Characteristics:**
-- Model: llama3:8b (8B parameters)
+- Model: llama3.1:8b (8B parameters)
 - Speed: 3-5 seconds per query
 - RAM: 8 GB required
 - Quality: Good, practical recommendations
