@@ -63,7 +63,7 @@ The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes slow SQL
 ### Analysis Modes
 
 **SLM Mode (Fast):**
-- Model: llama3:8b (8B parameters)
+- Model: llama3.1:8b (8B parameters)
 - Speed: 3-5 seconds per query
 - RAM: 8 GB required
 - Best for: Quick analysis, batch processing, laptops
