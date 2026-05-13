@@ -1,8 +1,4 @@
----
-layout: default
-title: Installation
-nav_order: 4
----
+
 
 # Installation Guide
 
@@ -303,7 +299,7 @@ export CRDB_CONN_STR="postgresql://user@host:26257/db"
 
 | Variable | Purpose | Example |
 |----------|---------|---------|
-| `OLLAMA_MODEL` | Override default model | `llama3:8b` |
+| `OLLAMA_MODEL` | Override default model | `llama3.1:8b` |
 | `OLLAMA_URL` | Ollama API endpoint | `http://localhost:11434/api/generate` |
 | `CRDB_CONN_STR` | Database connection string | `postgresql://root@localhost:26257/defaultdb` |
 | `HTTP_TIMEOUT` | Request timeout (seconds) | `30` |
@@ -349,7 +345,7 @@ rm /usr/local/bin/sql-tuning-advisor-v1.0.0
 rm ~/bin/sql-tuning-advisor-v1.0.0
 
 # Remove Ollama models (optional)
-ollama rm llama3:8b
+ollama rm llama3.1:8b
 ollama rm llama3.3:70b
 ```
 
