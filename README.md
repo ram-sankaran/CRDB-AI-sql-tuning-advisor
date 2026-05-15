@@ -23,7 +23,7 @@ Choose your platform:
 
 ---
 
-## What Is This?
+## AI powered SQL Tuning Advisor with DB Replay
 
 The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes slow SQL queries from CockroachDB diagnostic bundles and provides actionable optimization recommendations.
 
@@ -99,10 +99,10 @@ The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes slow SQL
    - Upload your statement.zip
 
 3. **Get AI-Powered Recommendations**
-   - Index suggestions with exact DDL
-   - Query rewrites (e.g., OR to UNION ALL)
-   - Schema optimization opportunities
-   - Performance improvement estimates
+   - Optimal index suggestions with DDL
+   - Query rewrite suggestions
+   - Schema optimization advice
+   - Performance estimation (before/after)
 
 4. **Validate & Apply**
    - Optionally test against real database
@@ -231,7 +231,7 @@ cd sql-tuning-advisor-v1.0.0
 
 ### Recommended
 - **CPU:** 4+ cores
-- **RAM:** 16 GB (SLM), 64 GB (LLM)
+- **RAM:** 16 GB (llama3.1:8b), 64 GB (llama3.3:70b)
 - **GPU:** Optional (2x faster for llama3.3:70b)
 - **Disk:** SSD for better performance
 
