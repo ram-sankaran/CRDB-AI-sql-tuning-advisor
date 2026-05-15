@@ -49,7 +49,6 @@ The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes multiple
 
 - Optimal index suggestions with DDL
 - Query rewrite suggestions
-- Schema optimization advice
 - Performance estimation (before/after)
 
 ### Database Validation
@@ -101,7 +100,6 @@ The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes multiple
 3. **Get AI-Powered Recommendations**
    - Optimal index suggestions with DDL
    - Query rewrite suggestions
-   - Schema optimization advice
    - Performance estimation (before/after)
 
 4. **Validate & Apply**
