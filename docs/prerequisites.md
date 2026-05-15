@@ -75,7 +75,7 @@ brew services start ollama
 
 **Download a model for analysis:**
 
-**For Fast Analysis (SLM Mode):**
+**llama3.1:8b (Recommended):**
 ```bash
 # llama3.1:8b - 4.9 GB download
 ollama pull llama3.1:8b
@@ -85,9 +85,10 @@ ollama pull llama3.1:8b
 - Download size: 4.9 GB
 - RAM needed: 8 GB
 - Analysis speed: 3-5 seconds
-- Quality: Good
+- Quality: Excellent for most queries
+- Best for: General use, laptops, quick analysis
 
-**For Detailed Analysis (LLM Mode):**
+**llama3.3:70b (Optional - Advanced):**
 ```bash
 # llama3.3:70b - 40 GB download
 ollama pull llama3.3:70b
@@ -97,7 +98,8 @@ ollama pull llama3.3:70b
 - Download size: 40 GB
 - RAM needed: 48 GB (or 24GB GPU VRAM)
 - Analysis speed: 60-90 seconds
-- Quality: Excellent
+- Quality: Maximum detail and accuracy
+- Best for: Complex queries, detailed explanations
 
 **Verify model downloaded:**
 ```bash
@@ -210,7 +212,7 @@ cockroach sql --insecure -e "CREATE DATABASE testdb;"
 |-----------|-------------|
 | **OS** | macOS 10.15+, Windows 10+, Ubuntu 20.04+ |
 | **CPU** | 2 cores, x86_64 or ARM64 |
-| **RAM** | 8 GB (SLM mode only) |
+| **RAM** | 8 GB (for llama3.1:8b) |
 | **Disk** | 10 GB free space |
 | **Network** | Internet for initial setup only |
 
@@ -220,9 +222,9 @@ cockroach sql --insecure -e "CREATE DATABASE testdb;"
 |-----------|-------------|
 | **OS** | Latest stable OS version |
 | **CPU** | 4+ cores, modern processor |
-| **RAM** | 16 GB (SLM), 64 GB (LLM) |
+| **RAM** | 16 GB (llama3.1:8b), 64 GB (llama3.3:70b) |
 | **Disk** | 50 GB free space (SSD preferred) |
-| **GPU** | Optional: NVIDIA GPU with 24GB+ VRAM (2x faster LLM) |
+| **GPU** | Optional: NVIDIA GPU with 24GB+ VRAM (2x faster for llama3.3:70b) |
 
 ---
 
@@ -232,11 +234,11 @@ cockroach sql --insecure -e "CREATE DATABASE testdb;"
 |------|------|---------|
 | SQL Tuning Advisor | 50 MB | Application executable |
 | Ollama Runtime | 500 MB | LLM inference engine |
-| llama3:8b model | 4.7 GB | Fast analysis (SLM) |
-| llama3.3:70b model | 40 GB | Detailed analysis (LLM) |
+| llama3.1:8b model | 4.9 GB | Recommended model |
+| llama3.3:70b model | 40 GB | Optional advanced model |
 | Working space | 1-5 GB | Temporary files, reports |
-| **Total (SLM)** | ~6 GB | For fast mode only |
-| **Total (LLM)** | ~46 GB | For detailed mode |
+| **Total (Basic)** | ~6 GB | With llama3.1:8b only |
+| **Total (Full)** | ~46 GB | With both models |
 
 ---
 
@@ -269,7 +271,7 @@ Ollama installed
   ✓ ollama serve is running
 
 Model downloaded
-  ✓ ollama list shows llama3:8b or llama3.3:70b
+  ✓ ollama list shows llama3.1:8b or llama3.3:70b
   ✓ Model fully downloaded (check size)
 
 Query bundle ready
@@ -277,12 +279,12 @@ Query bundle ready
   ✓ Bundle contains plan.txt and schema.sql
 
 Sufficient disk space
-  ✓ At least 10 GB free (SLM)
-  ✓ At least 50 GB free (LLM)
+  ✓ At least 10 GB free (llama3.1:8b)
+  ✓ At least 50 GB free (with llama3.3:70b)
 
 Sufficient RAM
-  ✓ 8 GB for SLM mode
-  ✓ 48 GB for LLM mode (or GPU)
+  ✓ 8 GB for llama3.1:8b
+  ✓ 48 GB for llama3.3:70b (or GPU)
 
 Optional: Test database
   ✓ CockroachDB instance accessible
@@ -321,7 +323,7 @@ curl http://localhost:11434/api/tags
 
 **Symptoms:**
 ```
-Error: model "llama3:8b" not found
+Error: model "llama3.1:8b" not found
 ```
 
 **Solution:**
@@ -330,11 +332,11 @@ Error: model "llama3:8b" not found
 ollama list
 
 # Pull missing model
-ollama pull llama3:8b
+ollama pull llama3.1:8b
 
 # Verify download
 ollama list
-# Should show llama3:8b with size 4.7 GB
+# Should show llama3.1:8b with size 4.9 GB
 ```
 
 ---
@@ -349,15 +351,15 @@ Out of memory
 
 **Solution:**
 
-For SLM mode (llama3:8b):
+For llama3.1:8b (recommended):
 - Close other applications
 - Requires minimum 8 GB RAM
 - Swap to smaller model: `ollama pull llama3.2:1b` (2 GB)
 
-For LLM mode (llama3.3:70b):
+For llama3.3:70b (advanced model):
 - Requires 48 GB RAM or GPU
 - Alternative: Use smaller model
-- Or use SLM mode instead
+- Or use llama3.1:8b instead (recommended)
 
 ---
 

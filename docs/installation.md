@@ -88,6 +88,10 @@ curl http://localhost:11434/api/tags
 
 # Verify model is downloaded
 ollama list | grep llama3
+
+# Start Ollama if not running
+ollama serve
+# Or start the Ollama desktop app
 ```
 
 ---
@@ -220,7 +224,7 @@ cd sql-tuning-advisor-v1.0.0
 **Expected output:**
 ```
 [INFO] Starting SQL Tuning Advisor v1.0.0
-[INFO] Mode: SLM (Fast Analysis)
+[INFO] Selected model: llama3.1:8b
 [INFO] Ollama URL: http://localhost:11434
 [INFO] Server starting on http://127.0.0.1:5050
 [INFO] Press Ctrl+C to stop
@@ -248,17 +252,17 @@ http://localhost:5050
 ### Basic Usage
 
 ```bash
-# Default: SLM mode on port 5050
+# Default: Uses llama3.1:8b on port 5050
 ./sql-tuning-advisor-v1.0.0
 
-# LLM mode on port 5051
-./sql-tuning-advisor-v1.0.0 --mode llm
+# Use specific model
+./sql-tuning-advisor-v1.0.0 --model llama3.3:70b
 
 # Custom port
 ./sql-tuning-advisor-v1.0.0 --port 8080
 
-# Debug mode
-./sql-tuning-advisor-v1.0.0 --debug
+# Debug mode (shows INFO and DEBUG messages)
+./sql-tuning-advisor-v1.0.0 --debug-level 2
 
 # Show help
 ./sql-tuning-advisor-v1.0.0 --help
@@ -268,10 +272,9 @@ http://localhost:5050
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--mode slm` | Fast analysis mode | `slm` |
-| `--mode llm` | Detailed analysis mode | - |
-| `--port PORT` | Server port number | `5050` (SLM), `5051` (LLM) |
-| `--debug` | Enable debug logging | `false` |
+| `--model MODEL` | Ollama model to use | `llama3.1:8b` |
+| `--port PORT` | Server port number | `5050` |
+| `--debug-level N` | Debug level (0=minimal, 1=INFO, 2=DEBUG) | `0` |
 | `--help` | Show help message | - |
 | `--version` | Show version info | - |
 
@@ -283,7 +286,7 @@ Override defaults with environment variables:
 
 ```bash
 # Use custom Ollama model
-export OLLAMA_MODEL=mistral:7b
+export OLLAMA_MODEL=llama3.3:70b
 ./sql-tuning-advisor-v1.0.0
 
 # Use remote Ollama server

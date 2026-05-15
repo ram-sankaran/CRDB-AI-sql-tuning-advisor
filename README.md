@@ -44,7 +44,6 @@ The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes slow SQL
 - Missing indexes
 - Inefficient joins
 - Suboptimal index usage
-- Cross-region queries
 
 ### AI Recommendations
 
@@ -60,19 +59,21 @@ The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes slow SQL
 - Validates performance improvements
 - Generates detailed comparison reports
 
-### Analysis Modes
+### Available Models
 
-**SLM Mode (Fast):**
-- Model: llama3.1:8b (8B parameters)
+**llama3.1:8b (Default - Recommended):**
 - Speed: 3-5 seconds per query
 - RAM: 8 GB required
-- Best for: Quick analysis, batch processing, laptops
+- Best for: Quick analysis, batch processing, laptops, most use cases
 
-**LLM Mode (Detailed):**
-- Model: llama3.3:70b (70B parameters)
+**llama3.3:70b (Advanced):**
 - Speed: 60-90 seconds per query
 - RAM: 48 GB required (or GPU)
 - Best for: Complex queries, production tuning, detailed explanations
+
+**Other Supported Models:**
+- mistral:7b - Fast alternative to llama3.1:8b
+- Any Ollama-compatible model
 
 ---
 
@@ -144,11 +145,17 @@ CREATE INDEX ON orders (customer_id, status);
 
 2. **Download a model**
    ```bash
-   # Fast analysis (recommended to start ,requires 8 GB RAM)
+   # Recommended: Fast and accurate for most queries (requires 8 GB RAM)
    ollama pull llama3.1:8b
    
-   # Or detailed analysis (requires 48GB RAM)
+   # Optional: For complex queries (requires 48GB RAM)
    ollama pull llama3.3:70b
+   ```
+
+3. **Start Ollama**
+   ```bash
+   ollama serve
+   # Or start the Ollama desktop app
    ```
 
 ### Install SQL Tuning Advisor
@@ -194,11 +201,11 @@ cd sql-tuning-advisor-v1.0.0
 ## Command-Line Usage
 
 ```bash
-# Default: SLM mode (fast)
+# Default: Uses llama3.1:8b
 ./sql-tuning-advisor-v1.0.0
 
-# LLM mode (detailed)
-./sql-tuning-advisor-v1.0.0 --mode llm
+# Use specific model
+./sql-tuning-advisor-v1.0.0 --model llama3.3:70b
 
 # Custom port
 ./sql-tuning-advisor-v1.0.0 --port 8080
@@ -207,6 +214,11 @@ cd sql-tuning-advisor-v1.0.0
 ./sql-tuning-advisor-v1.0.0 --help
 ```
 
+**Model Selection:**
+- Use `--model` flag to specify which Ollama model to use
+- Or select model from the web UI after starting
+- Default model: `llama3.1:8b` (can be overridden with `OLLAMA_MODEL` env var)
+
 ---
 
 ## System Requirements
@@ -214,13 +226,13 @@ cd sql-tuning-advisor-v1.0.0
 ### Minimum
 - **OS:** macOS 10.15+, Windows 10+, Ubuntu 20.04+
 - **CPU:** 2 cores
-- **RAM:** 8 GB (SLM mode)
+- **RAM:** 8 GB (for llama3.1:8b)
 - **Disk:** 10 GB free space
 
 ### Recommended
 - **CPU:** 4+ cores
 - **RAM:** 16 GB (SLM), 64 GB (LLM)
-- **GPU:** Optional (2x faster for LLM mode)
+- **GPU:** Optional (2x faster for llama3.3:70b)
 - **Disk:** SSD for better performance
 
 ### Linux Compatibility

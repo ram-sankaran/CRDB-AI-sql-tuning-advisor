@@ -21,7 +21,7 @@ SQL Tuning Advisor is a standalone desktop application that analyzes CockroachDB
 **Database Validation** - Tests recommendations against real CockroachDB instances  
 **Before/After Comparison** - Shows exact performance improvements  
 **Detailed Reports** - Generates comprehensive HTML reports  
-**Two Analysis Modes** - Fast (SLM) and detailed (LLM) analysis  
+**Flexible Model Selection** - Choose from fast (llama3.1:8b) or detailed (llama3.3:70b) models  
 **Offline Capable** - Works without internet once installed  
 **No Data Upload** - All analysis happens locally on your machine  
 
@@ -102,9 +102,14 @@ EXPLAIN ANALYZE (DEBUG) SELECT * FROM users WHERE email = 'test@example.com';
    # Install Ollama
    curl -fsSL https://ollama.ai/install.sh | sh
    
-   # Download model (choose one)
-   ollama pull llama3.1:8b          # Fast (SLM mode)
-   ollama pull llama3.3:70b       # Detailed (LLM mode)
+   # Download recommended model
+   ollama pull llama3.1:8b          # Recommended: Fast & accurate
+   
+   # Optional: For complex queries
+   ollama pull llama3.3:70b         # Slower but more detailed
+   
+   # Start Ollama
+   ollama serve
    ```
 
 2. **CockroachDB Bundle** - Query diagnostic file
@@ -149,16 +154,16 @@ sql-tuning-advisor-v1.0.0.exe
 
 ### Usage
 
-**SLM Mode (Fast, 3-5 seconds per query)**
+**Default (llama3.1:8b - Fast, 3-5 seconds per query)**
 ```bash
 ./sql-tuning-advisor-v1.0.0
 # Opens at http://localhost:5050
 ```
 
-**LLM Mode (Detailed, 60-90 seconds per query)**
+**Use Specific Model**
 ```bash
-./sql-tuning-advisor-v1.0.0 --mode llm
-# Opens at http://localhost:5051
+./sql-tuning-advisor-v1.0.0 --model llama3.3:70b
+# Opens at http://localhost:5050
 ```
 
 **Custom Port**
@@ -166,25 +171,32 @@ sql-tuning-advisor-v1.0.0.exe
 ./sql-tuning-advisor-v1.0.0 --port 8080
 ```
 
+**Model Selection:**
+- Default model: llama3.1:8b
+- Select different model from web UI, or
+- Use `--model` flag to specify at startup
+- Override with `OLLAMA_MODEL` environment variable
+
 ---
 
-## Analysis Modes
+## Supported Models
 
-### SLM Mode (Small Language Model)
+### llama3.1:8b (Default - Recommended)
 
 **Best for:**
 - Quick analysis and iterative tuning
 - Laptops and systems without GPU
 - Batch processing multiple queries
 - CI/CD pipeline integration
+- Most common use cases
 
 **Characteristics:**
-- Model: llama3.1:8b (8B parameters)
+- Parameters: 8B
 - Speed: 3-5 seconds per query
 - RAM: 8 GB required
-- Quality: Good, practical recommendations
+- Quality: Excellent for most queries
 
-### LLM Mode (Large Language Model)
+### llama3.3:70b (Advanced)
 
 **Best for:**
 - Complex multi-table queries
@@ -193,10 +205,17 @@ sql-tuning-advisor-v1.0.0.exe
 - Root cause analysis
 
 **Characteristics:**
-- Model: llama3.3:70b (70B parameters)
+- Parameters: 70B
 - Speed: 60-90 seconds per query
 - RAM: 48 GB required (or GPU)
-- Quality: Excellent, comprehensive analysis
+- Quality: Maximum detail and accuracy
+
+### Other Models
+
+Any Ollama-compatible model can be used:
+- mistral:7b - Fast alternative
+- mistral:latest - Latest Mistral version
+- Custom fine-tuned models
 
 ---
 
@@ -235,14 +254,14 @@ SELECT product_id, name, price FROM products WHERE priority = 'high' AND status 
 
 ### Minimum
 - **CPU:** 2 cores
-- **RAM:** 8 GB (SLM mode)
-- **Disk:** 500 MB for application + 5 GB for LLM models
+- **RAM:** 8 GB (for llama3.1:8b)
+- **Disk:** 500 MB for application + 5-40 GB for models
 - **OS:** macOS 10.15+, Windows 10+, Linux (Ubuntu 20.04+)
 
 ### Recommended
 - **CPU:** 4+ cores
 - **RAM:** 16 GB (SLM), 64 GB (LLM)
-- **GPU:** Optional (2x faster for LLM mode)
+- **GPU:** Optional (2x faster for llama3.3:70b)
 - **Disk:** SSD for better performance
 
 ---
