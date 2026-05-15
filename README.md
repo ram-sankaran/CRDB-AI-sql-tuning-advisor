@@ -25,7 +25,7 @@ Choose your platform:
 
 ## AI powered SQL Tuning Advisor with DB Replay
 
-The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes slow SQL queries from CockroachDB diagnostic bundles and provides actionable optimization recommendations.
+The CockroachDB SQL Tuning Advisor is an intelligent tool that analyzes multiple SQLs from CockroachDB diagnostic bundles and provides actionable optimization recommendations.
 
 **Key capabilities:**
 
@@ -134,29 +134,99 @@ CREATE INDEX ON orders (customer_id, status);
 
 ---
 
+## Prerequisites
+
+### 1. Ollama (Local LLM Runtime)
+
+**Install Ollama:**
+
+```bash
+# macOS / Linux
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# Or download from: https://ollama.ai/download
+```
+
+**Download a model:**
+```bash
+# Recommended: Fast and accurate (requires 8 GB RAM)
+ollama pull llama3.1:8b
+
+# Optional: Advanced model (requires 48GB RAM or GPU)
+ollama pull llama3.3:70b
+```
+
+**Start Ollama:**
+```bash
+ollama serve
+# Or start the Ollama desktop app
+```
+
+**Verify installation:**
+```bash
+ollama list
+# Should show downloaded models
+```
+
+---
+
+### 2. CockroachDB Query Bundle
+
+**What is a query bundle?**
+
+A statement bundle is a .zip file containing your SQL query, execution plan, table schemas, and performance metrics.
+
+**How to generate a bundle:**
+
+**Method 1: SQL Shell**
+```sql
+-- Connect to your database
+cockroach sql --url "postgresql://user@host:26257/database"
+
+-- Generate bundle for your query
+EXPLAIN ANALYZE (DEBUG) 
+SELECT * FROM orders WHERE customer_id = 100;
+
+-- Downloads: statement.zip
+```
+
+**Method 2: CockroachDB Cloud Console**
+1. Go to **SQL Activity → Statements**
+2. Find your slow query
+3. Click **"Diagnostics"**
+4. Download statement bundle
+
+**Method 3: DB Console (Self-Hosted)**
+1. Open DB Console: `http://localhost:8080`
+2. Navigate to **SQL Activity**
+3. Click on slow statement
+4. Click **"Download Bundle"**
+
+---
+
+### 3. Optional: CockroachDB Test Instance
+
+For database replay testing (validates recommendations before production):
+
+**Option A: Local Development Cluster**
+```bash
+cockroach start-single-node \
+  --insecure \
+  --listen-addr=localhost:26257 \
+  --http-addr=localhost:8080
+
+# Create test database
+cockroach sql --insecure -e "CREATE DATABASE testdb;"
+```
+
+**Option B: CockroachDB Cloud Free Tier**
+- Sign up at [https://cockroachlabs.cloud](https://cockroachlabs.cloud)
+- Create free cluster
+- Use connection string for testing
+
+---
+
 ## Installation
-
-### Prerequisites
-
-1. **Install Ollama** (local LLM runtime)
-   ```bash
-   curl -fsSL https://ollama.ai/install.sh | sh
-   ```
-
-2. **Download a model**
-   ```bash
-   # Recommended: Fast and accurate for most queries (requires 8 GB RAM)
-   ollama pull llama3.1:8b
-   
-   # Optional: For complex queries (requires 48GB RAM)
-   ollama pull llama3.3:70b
-   ```
-
-3. **Start Ollama**
-   ```bash
-   ollama serve
-   # Or start the Ollama desktop app
-   ```
 
 ### Install SQL Tuning Advisor
 
@@ -249,6 +319,109 @@ To check your GLIBC version: `ldd --version`
 
 ---
 
+## Troubleshooting
+
+### Ollama Not Running
+
+**Symptoms:**
+```
+Error: could not connect to Ollama
+Connection refused: http://localhost:11434
+```
+
+**Solution:**
+```bash
+# Start Ollama manually
+ollama serve
+
+# Or enable as service (macOS)
+brew services start ollama
+
+# Verify
+curl http://localhost:11434/api/tags
+# Should return JSON with model list
+```
+
+---
+
+### Model Not Found
+
+**Symptoms:**
+```
+Error: model "llama3.1:8b" not found
+```
+
+**Solution:**
+```bash
+# List available models
+ollama list
+
+# Pull missing model
+ollama pull llama3.1:8b
+
+# Verify download
+ollama list
+# Should show llama3.1:8b with size ~4.9 GB
+```
+
+---
+
+### Insufficient RAM
+
+**Symptoms:**
+```
+Error: model failed to load
+Out of memory
+```
+
+**Solution:**
+
+For **llama3.1:8b** (recommended):
+- Close other applications
+- Requires minimum 8 GB RAM
+- Alternative: Use smaller model `ollama pull llama3.2:1b` (2 GB)
+
+For **llama3.3:70b** (advanced):
+- Requires 48 GB RAM or GPU with 24GB+ VRAM
+- Alternative: Use llama3.1:8b instead
+
+---
+
+### Invalid Bundle Format
+
+**Symptoms:**
+```
+Error: invalid bundle format
+Missing plan.txt in bundle
+```
+
+**Solution:**
+1. Re-generate bundle with `EXPLAIN ANALYZE (DEBUG)`
+2. Ensure .zip file is complete (not truncated)
+3. Verify bundle contains required files:
+   ```bash
+   unzip -l statement.zip
+   # Should show: plan.txt, schema.sql, statement.sql
+   ```
+
+---
+
+### macOS Security Block
+
+**Symptoms:**
+```
+"sql-tuning-advisor cannot be opened because the developer cannot be verified"
+```
+
+**Solution:**
+1. Try to run the app (it will be blocked)
+2. Open **System Settings > Privacy & Security**
+3. Scroll to **Security** section
+4. Click **"Allow Anyway"** next to the blocked app message
+5. Run the app again and click **"Open"** to confirm
+
+---
+
 ## Privacy & Security
 
 **100% Local** - All analysis happens on your machine  
@@ -258,12 +431,9 @@ To check your GLIBC version: `ldd --version`
 
 ---
 
-## Documentation
+## Additional Documentation
 
-Full documentation available at: [https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/)
-
-- [Prerequisites](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/prerequisites.html) - System requirements, Ollama setup
-- [Installation Guide](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/installation.html) - Step-by-step installation
+Additional resources available at: [https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/)
 
 ---
 
