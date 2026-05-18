@@ -447,16 +447,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## Credits
-
-Built with:
-- [Ollama](https://ollama.ai/) - Local LLM runtime
-- [Flask](https://flask.palletsprojects.com/) - Web framework
-- [scikit-learn](https://scikit-learn.org/) - RAG document retrieval
-- [CockroachDB](https://www.cockroachlabs.com/) - The best distributed SQL database
-
----
-
 ## Support
 
 - **Documentation:** [https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/](https://ram-sankaran.github.io/CRDB-AI-sql-tuning-advisor/)
